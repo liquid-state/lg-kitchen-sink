@@ -1,0 +1,14 @@
+{
+  "generator-ls-iwa": {
+    "promptValues": {
+      "name": "lg-kitchen-sink",
+      "description": "",
+      "authorName": "Cyril Doussin",
+      "authorEmail": "cyril@liquid-state.com",
+      "private": true,
+      "gitUrl": "git@github.com:liquid-state/lg-kitchen-sink.git",
+      "iwaname": "lab",
+      "title": "Lab"
+    }
+  }
+}

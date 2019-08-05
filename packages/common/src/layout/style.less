@@ -1,0 +1,60 @@
+@import "~@project/theme/src/variables.less";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: @padding-sm;
+  padding-top: @padding-md;
+  min-height: 100vh;
+  min-width: 320px;
+
+  &.lg {
+    @media screen and (min-width: @screen-lg) {
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  .content-padding {
+    padding: 0 @padding-sm;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    &.vertical {
+      padding-top: @padding-md;
+    }
+  }
+
+  .bottom-container {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .fixed-width-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    &:not(.lg) {
+      @media screen and (min-width: @screen-md) {
+        margin: 0 auto;
+        width: 704px;
+      }
+    }
+
+    &.lg {
+      @media screen and (min-width: @screen-lg) {
+        margin: 0 auto;
+        width: 960px;
+        height: 680px;
+        max-height: 680px;
+      }
+    }
+  }
+}

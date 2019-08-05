@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Keyshape -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 64 64" style="white-space: pre;">
+    <style>
+@keyframes a0_so { 0% { stroke-opacity: 1; } 50% { stroke-opacity: 0; } 100% { stroke-opacity: 1; } }
+    </style>
+    <rect width="64" height="64" fill="#343333" stroke="none" rx="10" transform="translate(31.952,32) translate(-32.048,-32)"/>
+    <rect width="16" height="16" fill="#e8e6e6" rx="0" stroke="#787878" stroke-opacity="1" transform="translate(30.8625,30.8625) translate(-6.86252,-6.86252)" style="animation: a0_so 2s linear infinite both;"/>
+</svg>

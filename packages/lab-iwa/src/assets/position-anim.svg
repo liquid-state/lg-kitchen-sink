@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Keyshape -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 64 64" style="white-space: pre;">
+    <style>
+@keyframes a0_t { 0% { transform: translate(24px,24px); } 20% { transform: translate(45.375px,31.999999px); } 40% { transform: translate(21.375001px,46.749998px); } 60% { transform: translate(1.250001px,25.499998px); } 80% { transform: translate(11.250001px,1.374998px); } 100% { transform: translate(23.904021px,24px); } }
+    </style>
+    <rect width="64" height="64" fill="#343333" stroke="none" rx="10" transform="translate(31.952,32) translate(-32.048,-32)"/>
+    <rect width="16" height="16" fill="#e8e6e6" rx="0" stroke="none" transform="translate(30.8625,30.8625) translate(-6.86252,-6.86252)" style="animation: a0_t 5s linear infinite both;"/>
+</svg>
