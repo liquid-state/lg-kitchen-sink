@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createHashHistory } from 'history';
+import { I18nextProvider } from 'react-i18next';
 import createApp from '@liquid-state/iwa-core';
 import initialise from '@liquid-state/iwa-router';
 import Desktop, { middleware } from '@liquid-state/iwa-desktop';
@@ -11,6 +12,7 @@ import { Router, Settings, initialisation } from '@project/common';
 import definition from './webapp.json';
 import configureStore from './redux/store';
 import rootSaga from './redux/sagas';
+import i18n from './i18n';
 
 import Index from './pages';
 
@@ -22,9 +24,7 @@ const createDevApp = () => {
 };
 
 const instanciateApp = () => {
-  const app = process.env.NODE_ENV === 'production'
-    ? createApp(definition)
-    : createDevApp();
+  const app = process.env.NODE_ENV === 'production' ? createApp(definition) : createDevApp();
   app.plugin(KeyValuePlugin.configure());
   app.plugin(IdentityPlugin.configure());
   return app;
@@ -40,7 +40,9 @@ const { store, runSaga } = configureStore(app, router, history);
 const Application = () => (
   <Provider store={store}>
     <Router history={history} router={router}>
-      <Index />
+      <I18nextProvider i18n={i18n}>
+        <Index />
+      </I18nextProvider>
     </Router>
   </Provider>
 );

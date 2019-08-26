@@ -42,7 +42,7 @@ export class NavPage extends React.Component {
 NavPage.propTypes = {
   title: PropTypes.string,
   linksPrefix: PropTypes.string,
-  navItems: PropTypes.arrayOf(PropTypes.string),
+  navItems: PropTypes.array,
   onGoToRoute: PropTypes.func.isRequired,
 };
 NavPage.defaultProps = {

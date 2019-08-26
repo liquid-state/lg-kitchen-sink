@@ -1,4 +1,9 @@
-import { APP_RESET, ONLINE_STATUS, CHANGE_TABS } from './const';
+import {
+  APP_RESET,
+  ONLINE_STATUS,
+  CHANGE_TABS,
+  SEND_CUSTOM_EVENT,
+} from './const';
 
 export const appReset = () => ({
   type: APP_RESET,
@@ -15,4 +20,9 @@ export const changeTabs = hideSettings => ({
   payload: {
     hideSettings,
   },
+});
+
+export const sendCustomEvent = payload => ({
+  type: SEND_CUSTOM_EVENT,
+  payload,
 });
