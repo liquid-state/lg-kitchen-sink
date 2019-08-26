@@ -1,25 +1,27 @@
-import React from 'react';
-import { hot } from 'react-hot-loader';
-import { Switch } from 'react-router';
-import { Route } from '@project/common';
+import React from "react";
+import { hot } from "react-hot-loader";
+import { Switch } from "react-router";
+import { Route } from "@project/common";
 
-import '../style.less';
+import "../style.less";
 
-import NavPage from '@project/common/src/components/NavPage';
-import EventPage from '@project/common/src/components/EventPage';
+import NavPage from "@project/common/src/components/NavPage";
+import EventPage from "@project/common/src/components/EventPage";
 import {
   SetTabAppearancePageExample,
   AppResetExample,
-  OnlineStatusExample,
-} from './app';
-import { IWACustomExample } from './iwa';
+  OnlineStatusExample
+} from "./app";
+import { IWACustomExample } from "./iwa";
+import { UserfilesPickfileExample, UserfilesUploadExample } from "./userfiles";
 
-const documentationBaseURL = 'https://docs.liquid-gears.com/iwa-framework/events/';
+const documentationBaseURL =
+  "https://docs.liquid-gears.com/iwa-framework/events/";
 
 const AppResetComponent = (
   <EventPage
     eventName="reset"
-    description={(
+    description={
       <div>
         <p>
           Resets the entire app, destroying all IWAs, navigation controls and
@@ -27,7 +29,7 @@ const AppResetComponent = (
           app.
         </p>
       </div>
-)}
+    }
     documentationLink={`${documentationBaseURL}app#reset`}
     example={<AppResetExample />}
   />
@@ -36,13 +38,13 @@ const AppResetComponent = (
 const AppOnlineStatusComponent = (
   <EventPage
     eventName="reset"
-    description={(
+    description={
       <div>
         <p>
           IWA needs to know if the device/app is currently online or offline.
         </p>
       </div>
-)}
+    }
     documentationLink={`${documentationBaseURL}app#online_status`}
     example={<OnlineStatusExample />}
   />
@@ -51,14 +53,14 @@ const AppOnlineStatusComponent = (
 const AppSetTabAppearanceComponent = (
   <EventPage
     eventName="set_tab_appearance"
-    description={(
+    description={
       <div>
         <p>Only relevant to tabbed apps.</p>
         <p>
           Used to update the icon, text or displayed/hidden status of a tab.
         </p>
       </div>
-)}
+    }
     documentationLink={`${documentationBaseURL}app#set_tab_appearance`}
     example={<SetTabAppearancePageExample />}
   />
@@ -67,70 +69,118 @@ const AppSetTabAppearanceComponent = (
 const IWACustomComponent = (
   <EventPage
     eventName="custom"
-    description={(
+    description={
       <div>
         <p>Sends a custom event to another IWA.</p>
       </div>
-)}
+    }
     documentationLink={`${documentationBaseURL}iwa#custom`}
     example={<IWACustomExample />}
   />
 );
 
+const UserfilesPickfileComponent = (
+  <EventPage
+    eventName="pickfile"
+    description={
+      <div>
+        <p>Choose a file from the document picker, or take a photo or video.</p>
+      </div>
+    }
+    documentationLink={`${documentationBaseURL}userfiles#pickfile`}
+    example={<UserfilesPickfileExample />}
+  />
+);
+
+const UserfilesUploadComponent = (
+  <EventPage
+    eventName="upload"
+    description={
+      <div>
+        <p>Upload a file previously selected with the pickfile event.</p>
+      </div>
+    }
+    documentationLink={`${documentationBaseURL}userfiles#upload`}
+    example={<UserfilesUploadExample />}
+  />
+);
+
 const routes = [
   {
-    path: '/',
+    path: "/",
     component: (
       <NavPage
         title="Events framework"
         navItems={[
-          { path: 'app', name: 'app domain' },
-          { path: 'iwa', name: 'iwa domain' },
-          { path: 'kv', name: 'kv domain' },
+          { path: "app", name: "app domain" },
+          { path: "iwa", name: "iwa domain" },
+          { path: "kv", name: "kv domain" },
+          { path: "userfiles", name: "userfiles domain" }
         ]}
       />
-    ),
+    )
   },
   {
-    path: '/app',
+    path: "/app",
     component: (
       <NavPage
         title="app domain"
         linksPrefix="/app"
         navItems={[
-          { path: 'reset', name: 'reset' },
-          { path: 'online_status', name: 'online_status' },
-          { path: 'set_tab_appearance', name: 'set_tab_appearance' },
+          { path: "reset", name: "reset" },
+          { path: "online_status", name: "online_status" },
+          { path: "set_tab_appearance", name: "set_tab_appearance" }
         ]}
       />
-    ),
+    )
   },
   {
-    path: '/app/reset',
-    component: AppResetComponent,
+    path: "/app/reset",
+    component: AppResetComponent
   },
   {
-    path: '/app/online_status',
-    component: AppOnlineStatusComponent,
+    path: "/app/online_status",
+    component: AppOnlineStatusComponent
   },
   {
-    path: '/app/set_tab_appearance',
-    component: AppSetTabAppearanceComponent,
+    path: "/app/set_tab_appearance",
+    component: AppSetTabAppearanceComponent
   },
   {
-    path: '/iwa',
+    path: "/iwa",
     component: (
       <NavPage
         title="iwa domain"
         linksPrefix="/iwa"
-        navItems={[{ path: 'custom', name: 'custom' }]}
+        navItems={[{ path: "custom", name: "custom" }]}
       />
-    ),
+    )
   },
   {
-    path: '/iwa/custom',
-    component: IWACustomComponent,
+    path: "/iwa/custom",
+    component: IWACustomComponent
   },
+  {
+    path: "/userfiles",
+    component: (
+      <NavPage
+        title="userfiles domain"
+        linksPrefix="/userfiles"
+        navItems={[
+          { path: "pickfile", name: "pickfile" },
+          { path: "upload", name: "upload" }
+        ]}
+      />
+    )
+  },
+  {
+    path: "/userfiles/pickfile",
+    component: UserfilesPickfileComponent
+  },
+  {
+    path: "/userfiles/upload",
+    component: UserfilesUploadComponent
+  }
 ];
 
 export default hot(module)(() => (
