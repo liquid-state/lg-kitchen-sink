@@ -1,10 +1,10 @@
-import React from "react";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { Button, Card } from "antd";
-import { sendPickfileEvent } from "../../redux/actions";
+import { Button, Card } from 'antd';
+import { sendPickfileEvent } from '../../redux/actions';
 
 export class Example extends React.Component {
   onSendPickfileEvent = () => {
@@ -18,34 +18,37 @@ export class Example extends React.Component {
       <Card title="Example">
         <p>
           Click the following button to ask the native app to prompt the user to
-          choose a file with the "image/*" mme type.
+          choose a file with the &ldquo;image/*&rdquo; mme type.
         </p>
         <Button type="primary" onClick={this.onSendPickfileEvent}>
-          Send "pickfile" event
+          Send &ldquo;pickfile&rdquo; event
         </Button>
-        {pickedFilePath ? <p>Path of picked file: {pickedFilePath}</p> : null}
+        {pickedFilePath ? (
+          <p>
+            Path of picked file:
+            {pickedFilePath}
+          </p>
+        ) : null}
       </Card>
     );
   }
 }
 Example.propTypes = {
-  pickedFilePath: PropTypes.string,
-  onSendPickfileEvent: PropTypes.func.isRequired
+  pickedFilePath: PropTypes.string.isRequired,
+  onSendPickfileEvent: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
-  return {
-    pickedFilePath: state.userfiles.pickedFilePath
-  };
-};
+const mapStateToProps = state => ({
+  pickedFilePath: state.userfiles.pickedFilePath,
+});
 
 const mapActionsToProps = {
-  onSendPickfileEvent: sendPickfileEvent
+  onSendPickfileEvent: sendPickfileEvent,
 };
 
 export default compose(
   connect(
     mapStateToProps,
-    mapActionsToProps
-  )
+    mapActionsToProps,
+  ),
 )(Example);

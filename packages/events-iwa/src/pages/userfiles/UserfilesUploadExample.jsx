@@ -1,10 +1,10 @@
-import React from "react";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { Button, Card } from "antd";
-import { sendUploadEvent } from "../../redux/actions";
+import { Button, Card } from 'antd';
+import { sendUploadEvent } from '../../redux/actions';
 
 export class Example extends React.Component {
   onSendUploadEvent = () => {
@@ -22,9 +22,12 @@ export class Example extends React.Component {
         </p>
         {pickedFilePath ? (
           <div>
-            <p>Path of picked file: {pickedFilePath}</p>
+            <p>
+              Path of picked file:
+              {pickedFilePath}
+            </p>
             <Button type="primary" onClick={this.onSendUploadEvent}>
-              Send "upload" event
+              Send &ldquo;upload&rdquo; event
             </Button>
           </div>
         ) : null}
@@ -33,23 +36,21 @@ export class Example extends React.Component {
   }
 }
 Example.propTypes = {
-  pickedFilePath: PropTypes.string,
-  onSendUploadEvent: PropTypes.func.isRequired
+  pickedFilePath: PropTypes.string.isRequired,
+  onSendUploadEvent: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
-  return {
-    pickedFilePath: state.userfiles.pickedFilePath
-  };
-};
+const mapStateToProps = state => ({
+  pickedFilePath: state.userfiles.pickedFilePath,
+});
 
 const mapActionsToProps = {
-  onSendUploadEvent: sendUploadEvent
+  onSendUploadEvent: sendUploadEvent,
 };
 
 export default compose(
   connect(
     mapStateToProps,
-    mapActionsToProps
-  )
+    mapActionsToProps,
+  ),
 )(Example);

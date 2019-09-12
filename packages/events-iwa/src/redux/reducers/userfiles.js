@@ -1,7 +1,7 @@
-import { FILE_PICKED } from "../const";
+import { FILE_PICKED } from '../const';
 
 const initialState = {
-  pickedFilePath: null
+  pickedFilePath: null,
 };
 
 export default (state = initialState, action) => {
