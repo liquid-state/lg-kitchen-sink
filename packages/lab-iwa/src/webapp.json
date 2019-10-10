@@ -1,3 +1,37 @@
 {
-    "id": "lab"
+  "id": "lab",
+  "show_tabs": true,
+  "actions": {
+    "definitions": {
+      "action1": {
+        "domain": "iwa",
+        "event_type": "trigger_action",
+        "data": {}
+      },
+      "action2": {
+        "domain": "iwa",
+        "event_type": "trigger_action",
+        "data": {}
+      }
+    },
+    "presentations": {
+      "action1": {
+        "action_id": "action1",
+        "title": "Action 1",
+        "icon_name": "gear"
+      },
+      "action2": {
+        "action_id": "action2",
+        "title": "Action 2",
+        "icon_name": "plus"
+      }
+    }
+  },
+  "routes": {
+    "/": {
+      "actions": {
+        "primary": ["action1", "action2"]
+      }
+    }
+  }
 }
