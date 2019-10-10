@@ -13,6 +13,7 @@ import {
   OnlineStatusExample,
 } from './app';
 import { IWACustomExample } from './iwa';
+import { UserfilesPickfileExample, UserfilesUploadExample } from './userfiles';
 
 const documentationBaseURL = 'https://docs.liquid-gears.com/iwa-framework/events/';
 
@@ -77,6 +78,32 @@ const IWACustomComponent = (
   />
 );
 
+const UserfilesPickfileComponent = (
+  <EventPage
+    eventName="pickfile"
+    description={(
+      <div>
+        <p>Choose a file from the document picker, or take a photo or video.</p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}userfiles#pickfile`}
+    example={<UserfilesPickfileExample />}
+  />
+);
+
+const UserfilesUploadComponent = (
+  <EventPage
+    eventName="upload"
+    description={(
+      <div>
+        <p>Upload a file previously selected with the pickfile event.</p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}userfiles#upload`}
+    example={<UserfilesUploadExample />}
+  />
+);
+
 const routes = [
   {
     path: '/',
@@ -87,6 +114,7 @@ const routes = [
           { path: 'app', name: 'app domain' },
           { path: 'iwa', name: 'iwa domain' },
           { path: 'kv', name: 'kv domain' },
+          { path: 'userfiles', name: 'userfiles domain' },
         ]}
       />
     ),
@@ -130,6 +158,27 @@ const routes = [
   {
     path: '/iwa/custom',
     component: IWACustomComponent,
+  },
+  {
+    path: '/userfiles',
+    component: (
+      <NavPage
+        title="userfiles domain"
+        linksPrefix="/userfiles"
+        navItems={[
+          { path: 'pickfile', name: 'pickfile' },
+          { path: 'upload', name: 'upload' },
+        ]}
+      />
+    ),
+  },
+  {
+    path: '/userfiles/pickfile',
+    component: UserfilesPickfileComponent,
+  },
+  {
+    path: '/userfiles/upload',
+    component: UserfilesUploadComponent,
   },
 ];
 
