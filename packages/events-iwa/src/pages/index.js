@@ -13,6 +13,7 @@ import {
   OnlineStatusExample,
 } from './app';
 import { IWACustomExample } from './iwa';
+import { LaunchDocumentExample } from './launch';
 import { UserfilesPickfileExample, UserfilesUploadExample } from './userfiles';
 
 const documentationBaseURL = 'https://docs.liquid-gears.com/iwa-framework/events/';
@@ -104,6 +105,19 @@ const UserfilesUploadComponent = (
   />
 );
 
+const LaunchDocumentComponent = (
+  <EventPage
+    eventName="document"
+    description={(
+      <div>
+        <p>Open the Ubiquity Document Viewer.</p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}launch#document`}
+    example={<LaunchDocumentExample />}
+  />
+);
+
 const routes = [
   {
     path: '/',
@@ -115,6 +129,7 @@ const routes = [
           { path: 'iwa', name: 'iwa domain' },
           { path: 'kv', name: 'kv domain' },
           { path: 'userfiles', name: 'userfiles domain' },
+          { path: 'launch', name: 'launch domain' },
         ]}
       />
     ),
@@ -158,6 +173,20 @@ const routes = [
   {
     path: '/iwa/custom',
     component: IWACustomComponent,
+  },
+  {
+    path: '/launch',
+    component: (
+      <NavPage
+        title="launch domain"
+        linksPrefix="/launch"
+        navItems={[{ path: 'document', name: 'document' }]}
+      />
+    ),
+  },
+  {
+    path: '/launch/document',
+    component: LaunchDocumentComponent,
   },
   {
     path: '/userfiles',

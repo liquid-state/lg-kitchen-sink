@@ -7,6 +7,7 @@ import {
   FILE_PICKED,
   UPLOAD_FILE,
   FILE_PICKING_FAILED,
+  LAUNCH_DOCUMENT,
 } from './const';
 
 export const appReset = () => ({
@@ -51,4 +52,12 @@ export const filePickingFailed = payload => ({
 export const sendUploadEvent = payload => ({
   type: UPLOAD_FILE,
   payload,
+});
+
+export const launchDocument = (productId, pageSlug) => ({
+  type: LAUNCH_DOCUMENT,
+  payload: {
+    productId,
+    pageSlug,
+  },
 });

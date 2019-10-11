@@ -1882,10 +1882,10 @@
   resolved "https://registry.yarnpkg.com/@liquid-state/iwa-router/-/iwa-router-2.0.0.tgz#9bdcc912fd1ada9b4b774ed79bbd9b918678c057"
   integrity sha512-iGSznrFtkgCH3LXs9KZmisXBm8+uKWLgZYs8lM9zcsyC7/Iq1XIeTEAYUzyR10ixDKDuKgSTGJR8pthDZIpW9Q==
 
-"@liquid-state/ubiquity-client@^0.1.3":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@liquid-state/ubiquity-client/-/ubiquity-client-0.1.7.tgz#c0d95e3ec5f58b95ba96171493093f387e17435b"
-  integrity sha512-zo5YpoHaYgwWJ51tzP29pdmTCDuXxlGfQJCEQLtV6mqf3oD7l0LSwUEFRctkAYX5ZZRThDN54CE9iDaMECRycQ==
+"@liquid-state/ubiquity-client@0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@liquid-state/ubiquity-client/-/ubiquity-client-0.1.8.tgz#9f65b308fd8e3d85f531896424c32aeaa2ae206e"
+  integrity sha512-xGoo/B87UDsnT9DUYR9HCD9Dudh2Sw/E9aKbLQwVSG6N9f7AQ0RULXqTnSteKUiL3k9FIn3t9QzWkQuHmVdMfw==
   dependencies:
     lodash-es "^4.17.5"
 
