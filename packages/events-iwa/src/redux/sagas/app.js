@@ -65,12 +65,12 @@ function* changeTabs({ payload }) {
   );
 }
 
-function* switchTabs() {
+function* switchTabs({ payload }) {
   const msg = {
     domain: 'app',
     eventType: 'switch_tab',
     data: {
-      id: 'ui-kit',
+      id: payload.tabId,
     },
   };
   const app = yield getContext('app');
