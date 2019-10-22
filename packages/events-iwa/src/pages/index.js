@@ -11,6 +11,7 @@ import {
   SetTabAppearancePageExample,
   AppResetExample,
   OnlineStatusExample,
+  SwitchTabExample,
 } from './app';
 import { IWACustomExample } from './iwa';
 import {
@@ -67,6 +68,26 @@ const AppSetTabAppearanceComponent = (
 )}
     documentationLink={`${documentationBaseURL}app#set_tab_appearance`}
     example={<SetTabAppearancePageExample />}
+  />
+);
+
+const AppSwitchTabComponent = (
+  <EventPage
+    eventName="switch_tab"
+    description={(
+      <div>
+        <p>
+          Takes the user to another tab, as if they had used a button in the tab
+          bar.
+        </p>
+        <p>
+          It is possible to optionaly pass parameters to the destination tab
+          (see documentation).
+        </p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}app#switch_tab`}
+    example={<SwitchTabExample />}
   />
 );
 
@@ -174,6 +195,7 @@ const routes = [
           { path: 'reset', name: 'reset' },
           { path: 'online_status', name: 'online_status' },
           { path: 'set_tab_appearance', name: 'set_tab_appearance' },
+          { path: 'switch_tab', name: 'switch_tab' },
         ]}
       />
     ),
@@ -189,6 +211,10 @@ const routes = [
   {
     path: '/app/set_tab_appearance',
     component: AppSetTabAppearanceComponent,
+  },
+  {
+    path: '/app/switch_tab',
+    component: AppSwitchTabComponent,
   },
   {
     path: '/iwa',

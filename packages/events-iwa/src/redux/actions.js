@@ -2,6 +2,7 @@ import {
   APP_RESET,
   ONLINE_STATUS,
   CHANGE_TABS,
+  SWITCH_TABS,
   SEND_CUSTOM_EVENT,
   SEND_PICKFILE_EVENT,
   FILE_PICKED,
@@ -26,6 +27,13 @@ export const changeTabs = hideSettings => ({
   type: CHANGE_TABS,
   payload: {
     hideSettings,
+  },
+});
+
+export const switchTabs = tabId => ({
+  type: SWITCH_TABS,
+  payload: {
+    tabId,
   },
 });
 
