@@ -8,6 +8,8 @@ import {
   UPLOAD_FILE,
   FILE_PICKING_FAILED,
   LAUNCH_DOCUMENT,
+  LAUNCH_IWA,
+  LAUNCH_EMAIL,
 } from './const';
 
 export const appReset = () => ({
@@ -59,5 +61,23 @@ export const launchDocument = (productId, pageSlug) => ({
   payload: {
     productId,
     pageSlug,
+  },
+});
+
+export const launchIWA = webappId => ({
+  type: LAUNCH_IWA,
+  payload: {
+    webappId,
+  },
+});
+
+export const launchEmail = (to, cc, bcc, subject, body) => ({
+  type: LAUNCH_EMAIL,
+  payload: {
+    to,
+    cc,
+    bcc,
+    subject,
+    body,
   },
 });

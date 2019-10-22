@@ -7,3 +7,5 @@ export const FILE_PICKED = 'FILE_PICKED';
 export const FILE_PICKING_FAILED = 'FILE_PICKING_FAILED';
 export const UPLOAD_FILE = 'UPLOAD_FILE';
 export const LAUNCH_DOCUMENT = 'LAUNCH_DOCUMENT';
+export const LAUNCH_IWA = 'LAUNCH_IWA';
+export const LAUNCH_EMAIL = 'LAUNCH_EMAIL';

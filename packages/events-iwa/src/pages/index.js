@@ -13,7 +13,11 @@ import {
   OnlineStatusExample,
 } from './app';
 import { IWACustomExample } from './iwa';
-import { LaunchDocumentExample } from './launch';
+import {
+  LaunchDocumentExample,
+  LaunchIWAExample,
+  LaunchEmailExample,
+} from './launch';
 import { UserfilesPickfileExample, UserfilesUploadExample } from './userfiles';
 
 const documentationBaseURL = 'https://docs.liquid-gears.com/iwa-framework/events/';
@@ -118,6 +122,32 @@ const LaunchDocumentComponent = (
   />
 );
 
+const LaunchIWAComponent = (
+  <EventPage
+    eventName="iwa"
+    description={(
+      <div>
+        <p>Launch another IWA, optionally at a specific route.</p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}launch#iwa`}
+    example={<LaunchIWAExample />}
+  />
+);
+
+const LaunchEmailComponent = (
+  <EventPage
+    eventName="email"
+    description={(
+      <div>
+        <p>Launch the device&apos;s email composing interface..</p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}launch#email`}
+    example={<LaunchEmailExample />}
+  />
+);
+
 const routes = [
   {
     path: '/',
@@ -180,13 +210,25 @@ const routes = [
       <NavPage
         title="launch domain"
         linksPrefix="/launch"
-        navItems={[{ path: 'document', name: 'document' }]}
+        navItems={[
+          { path: 'document', name: 'document' },
+          { path: 'iwa', name: 'iwa' },
+          { path: 'email', name: 'email' },
+        ]}
       />
     ),
   },
   {
     path: '/launch/document',
     component: LaunchDocumentComponent,
+  },
+  {
+    path: '/launch/iwa',
+    component: LaunchIWAComponent,
+  },
+  {
+    path: '/launch/email',
+    component: LaunchEmailComponent,
   },
   {
     path: '/userfiles',
