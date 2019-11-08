@@ -1,0 +1,39 @@
+
+
+.scroll-container {
+  display: flex;
+  overflow-x: hidden;
+
+  padding: 8px;
+  > * {
+    margin-right: 12px;
+  }
+}
+
+.gesture-card {
+  height: 96px;
+  width: 96px;
+  border-radius: 15%;
+
+  user-select: none;
+
+  font-size: 24px;
+  flex: 0 0 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: hsl(14, 100%, 57%);
+
+  &.blue {
+    background-color: hsl(210, 99%, 57%);
+  }
+
+  &.green {
+    background-color: hsl(150, 99%, 57%);
+  }
+
+  &.yellow {
+    background-color: hsl(60, 99%, 57%);
+  }
+}

@@ -10,6 +10,7 @@ import SvgShowCasePage from './SvgShowCase';
 import ConnectedOnlineVideo from './OnlineVideo';
 import { fillColourAnim, fillOpacityAnim } from '../assets';
 import InteractiveSvgPage from './InteractiveSvg';
+import GestureScroll from './GestureScroll';
 
 export default hot(module)(() => (
   <Switch>
@@ -22,6 +23,7 @@ export default hot(module)(() => (
           navItems={[
             { path: 'svg_animations', name: 'SVG animations' },
             { path: 'interactive', name: 'Interactive SVG animations' },
+            { path: 'gestures', name: 'Gesture Scroll' },
             { path: 'online_video', name: 'Online video' },
           ]}
         />
@@ -61,5 +63,6 @@ export default hot(module)(() => (
       )}
     />
     <Route exact path="/interactive" component={InteractiveSvgPage} />
+    <Route exact path="/gestures" component={GestureScroll} />
   </Switch>
 ));
