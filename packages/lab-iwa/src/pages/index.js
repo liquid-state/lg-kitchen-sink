@@ -8,6 +8,7 @@ import '../style.less';
 import NavPage from '@project/common/src/components/NavPage';
 import SvgShowCasePage from './SvgShowCase';
 import { fillColourAnim, fillOpacityAnim } from '../assets';
+import InteractiveSvgPage from './InteractiveSvg';
 
 export default hot(module)(() => (
   <Switch>
@@ -17,7 +18,10 @@ export default hot(module)(() => (
       component={() => (
         <NavPage
           title="Tests &amp; Experiments"
-          navItems={[{ path: 'svg_animations', name: 'SVG animations' }]}
+          navItems={[
+            { path: 'svg_animations', name: 'SVG animations' },
+            { path: 'interactive', name: 'Interactive SVG animations' },
+          ]}
         />
       )}
     />
@@ -45,5 +49,6 @@ export default hot(module)(() => (
       path="/svg_animations/fill_opacity_anim"
       component={() => <SvgShowCasePage title="fill opacity anim" svgAsset={fillOpacityAnim} />}
     />
+    <Route exact path="/interactive" component={InteractiveSvgPage} />
   </Switch>
 ));
