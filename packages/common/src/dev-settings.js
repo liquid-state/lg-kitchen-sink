@@ -1,5 +1,7 @@
-const UBIQUITY_COMPANY_TOKEN = 'XXXXXX';
-const UBIQUITY_APP_TOKEN = 'XXXXXX';
+const UBIQUITY_COMPANY_TOKEN = '4440a8';
+const UBIQUITY_APP_TOKEN = 'b5d5c8';
+const DOMAIN_NAME = 'stufff.net';
+const AWS_REGION = 'ap-southeast-2';
 
 export default {
   app_token: UBIQUITY_APP_TOKEN,
@@ -8,6 +10,11 @@ export default {
   AWS_USER_POOL_CLIENT_ID: 'XXXX',
   AWS_IDENTITY_POOL_ID: 'ap-southeast-2:XXXXX',
   AWS_REGION: 'ap-southeast-2',
+  UBIQUITY_BASE_URL: `https://ubiquity.${DOMAIN_NAME}/`,
+  UBIQUITY_BASE_S3_URL: `https://cms-${DOMAIN_NAME.replace(
+    '.',
+    '-',
+  )}.s3.${AWS_REGION}.amazonaws.com/`,
   UBIQUITY_APP_USER_REGISTRATION_URL: `https://cloud.liquid-state.com/api/appusers/v1/${UBIQUITY_APP_TOKEN}/register/`,
   // if using a PIP, the following settings are needed:
   UIS_URL: `https://XXXXXX.execute-api.ap-southeast-2.amazonaws.com/dev/app/${UBIQUITY_APP_TOKEN}/`,

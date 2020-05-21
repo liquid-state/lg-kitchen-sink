@@ -1,8 +1,12 @@
 export const APP_RESET = 'APP_RESET';
 export const ONLINE_STATUS = 'ONLINE_STATUS';
 export const CHANGE_TABS = 'CHANGE_TABS';
+export const SWITCH_TABS = 'SWITCH_TABS';
 export const SEND_CUSTOM_EVENT = 'SEND_CUSTOM_EVENT';
 export const SEND_PICKFILE_EVENT = 'SEND_PICKFILE_EVENT';
 export const FILE_PICKED = 'FILE_PICKED';
 export const FILE_PICKING_FAILED = 'FILE_PICKING_FAILED';
 export const UPLOAD_FILE = 'UPLOAD_FILE';
+export const LAUNCH_DOCUMENT = 'LAUNCH_DOCUMENT';
+export const LAUNCH_IWA = 'LAUNCH_IWA';
+export const LAUNCH_EMAIL = 'LAUNCH_EMAIL';

@@ -4,34 +4,47 @@ import UbiquityPlugin from '@liquid-state/ubiquity-client/dist/plugin';
 const applyPermissions = key => key
   .addWritePermission('iwa', 'entry')
   .addWritePermission('iwa', 'home')
+  .addWritePermission('iwa', 'events')
   .addReadPermission('native', 'library');
 
-const mapContentForNative = ({ documents, categories }) => ({
-  iaps: {
-    ios: documents,
-    android: documents,
-  },
-  categories,
-});
+// const mapContentForNative = ({ documents, categories }) => ({
+//   iaps: {
+//     ios: documents,
+//     android: documents
+//   },
+//   categories
+// });
 
 export const refreshContent = async (app) => {
   const kv = app.use(KeyValuePlugin);
   const client = await app.use(UbiquityPlugin);
-  let content;
-  try {
-    content = await client.appContent();
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.error(e);
-    throw e;
-  }
+
+  const content = await client.appPublicConfiguration();
   const contentKey = applyPermissions(new Key('app.ubiquity-content', content));
-  // Also set content for the native document reader.
-  const mappedContent = mapContentForNative(content);
-  const nativeKey = applyPermissions(new Key('ubiquity.library-content', mappedContent));
+  const nativeKey = applyPermissions(
+    new Key('ubiquity.library-content', content),
+  );
   await kv.set(contentKey);
   await kv.set(nativeKey);
   return content;
+
+  // let content;
+  // try {
+  //   content = await client.appContent();
+  // } catch (e) {
+  //   // eslint-disable-next-line no-console
+  //   console.error(e);
+  //   throw e;
+  // }
+  // const contentKey = applyPermissions(new Key("app.ubiquity-content", content));
+  // // Also set content for the native document reader.
+  // const mappedContent = mapContentForNative(content);
+  // const nativeKey = applyPermissions(
+  //   new Key("ubiquity.library-content", mappedContent)
+  // );
+  // await kv.set(contentKey);
+  // await kv.set(nativeKey);
+  // return content;
 };
 
 export const clearCache = async (app) => {

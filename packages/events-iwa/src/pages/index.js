@@ -11,8 +11,14 @@ import {
   SetTabAppearancePageExample,
   AppResetExample,
   OnlineStatusExample,
+  SwitchTabExample,
 } from './app';
 import { IWACustomExample } from './iwa';
+import {
+  LaunchDocumentExample,
+  LaunchIWAExample,
+  LaunchEmailExample,
+} from './launch';
 import { UserfilesPickfileExample, UserfilesUploadExample } from './userfiles';
 
 const documentationBaseURL = 'https://docs.liquid-gears.com/iwa-framework/events/';
@@ -65,6 +71,26 @@ const AppSetTabAppearanceComponent = (
   />
 );
 
+const AppSwitchTabComponent = (
+  <EventPage
+    eventName="switch_tab"
+    description={(
+      <div>
+        <p>
+          Takes the user to another tab, as if they had used a button in the tab
+          bar.
+        </p>
+        <p>
+          It is possible to optionaly pass parameters to the destination tab
+          (see documentation).
+        </p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}app#switch_tab`}
+    example={<SwitchTabExample />}
+  />
+);
+
 const IWACustomComponent = (
   <EventPage
     eventName="custom"
@@ -104,6 +130,45 @@ const UserfilesUploadComponent = (
   />
 );
 
+const LaunchDocumentComponent = (
+  <EventPage
+    eventName="document"
+    description={(
+      <div>
+        <p>Open the Ubiquity Document Viewer.</p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}launch#document`}
+    example={<LaunchDocumentExample />}
+  />
+);
+
+const LaunchIWAComponent = (
+  <EventPage
+    eventName="iwa"
+    description={(
+      <div>
+        <p>Launch another IWA, optionally at a specific route.</p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}launch#iwa`}
+    example={<LaunchIWAExample />}
+  />
+);
+
+const LaunchEmailComponent = (
+  <EventPage
+    eventName="email"
+    description={(
+      <div>
+        <p>Launch the device&apos;s email composing interface..</p>
+      </div>
+)}
+    documentationLink={`${documentationBaseURL}launch#email`}
+    example={<LaunchEmailExample />}
+  />
+);
+
 const routes = [
   {
     path: '/',
@@ -115,6 +180,7 @@ const routes = [
           { path: 'iwa', name: 'iwa domain' },
           { path: 'kv', name: 'kv domain' },
           { path: 'userfiles', name: 'userfiles domain' },
+          { path: 'launch', name: 'launch domain' },
         ]}
       />
     ),
@@ -129,6 +195,7 @@ const routes = [
           { path: 'reset', name: 'reset' },
           { path: 'online_status', name: 'online_status' },
           { path: 'set_tab_appearance', name: 'set_tab_appearance' },
+          { path: 'switch_tab', name: 'switch_tab' },
         ]}
       />
     ),
@@ -146,6 +213,10 @@ const routes = [
     component: AppSetTabAppearanceComponent,
   },
   {
+    path: '/app/switch_tab',
+    component: AppSwitchTabComponent,
+  },
+  {
     path: '/iwa',
     component: (
       <NavPage
@@ -158,6 +229,32 @@ const routes = [
   {
     path: '/iwa/custom',
     component: IWACustomComponent,
+  },
+  {
+    path: '/launch',
+    component: (
+      <NavPage
+        title="launch domain"
+        linksPrefix="/launch"
+        navItems={[
+          { path: 'document', name: 'document' },
+          { path: 'iwa', name: 'iwa' },
+          { path: 'email', name: 'email' },
+        ]}
+      />
+    ),
+  },
+  {
+    path: '/launch/document',
+    component: LaunchDocumentComponent,
+  },
+  {
+    path: '/launch/iwa',
+    component: LaunchIWAComponent,
+  },
+  {
+    path: '/launch/email',
+    component: LaunchEmailComponent,
   },
   {
     path: '/userfiles',
