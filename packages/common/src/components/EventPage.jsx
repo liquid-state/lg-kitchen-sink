@@ -39,7 +39,7 @@ export class EventPage extends React.Component {
 }
 EventPage.propTypes = {
   eventName: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.object,
   documentationLink: PropTypes.string,
   example: PropTypes.object,
 };

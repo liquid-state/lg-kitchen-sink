@@ -8,20 +8,21 @@ import '../style.less';
 import NavPage from '@project/common/src/components/NavPage';
 import EventPage from '@project/common/src/components/EventPage';
 import { SetTabAppearancePageExample, AppResetExample, OnlineStatusExample } from './app';
+import { IWACustomExample } from './iwa';
 
 const documentationBaseURL = 'https://docs.liquid-gears.com/iwa-framework/events/';
 
 const AppResetComponent = (
   <EventPage
     eventName="reset"
-    description={(
+    description={
       <div>
         <p>
           Resets the entire app, destroying all IWAs, navigation controls and contexts and reloading
           App Data, as if users had just launched the app.
         </p>
       </div>
-)}
+    }
     documentationLink={`${documentationBaseURL}app#reset`}
     example={<AppResetExample />}
   />
@@ -30,11 +31,11 @@ const AppResetComponent = (
 const AppOnlineStatusComponent = (
   <EventPage
     eventName="reset"
-    description={(
+    description={
       <div>
         <p>IWA needs to know if the device/app is currently online or offline.</p>
       </div>
-)}
+    }
     documentationLink={`${documentationBaseURL}app#online_status`}
     example={<OnlineStatusExample />}
   />
@@ -43,14 +44,27 @@ const AppOnlineStatusComponent = (
 const AppSetTabAppearanceComponent = (
   <EventPage
     eventName="set_tab_appearance"
-    description={(
+    description={
       <div>
         <p>Only relevant to tabbed apps.</p>
         <p>Used to update the icon, text or displayed/hidden status of a tab.</p>
       </div>
-)}
+    }
     documentationLink={`${documentationBaseURL}app#set_tab_appearance`}
     example={<SetTabAppearancePageExample />}
+  />
+);
+
+const IWACustomComponent = (
+  <EventPage
+    eventName="custom"
+    description={
+      <div>
+        <p>Sends a custom event to another IWA.</p>
+      </div>
+    }
+    documentationLink={`${documentationBaseURL}iwa#custom`}
+    example={<IWACustomExample />}
   />
 );
 
@@ -93,6 +107,20 @@ const routes = [
   {
     path: '/app/set_tab_appearance',
     component: AppSetTabAppearanceComponent,
+  },
+  {
+    path: '/iwa',
+    component: (
+      <NavPage
+        title="iwa domain"
+        linksPrefix="/iwa"
+        navItems={[{ path: 'custom', name: 'custom' }]}
+      />
+    ),
+  },
+  {
+    path: '/iwa/custom',
+    component: IWACustomComponent,
   },
 ];
 

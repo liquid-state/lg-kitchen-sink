@@ -1,0 +1,8 @@
+{
+  "general": {
+    "title": "General",
+    "date-picker": {
+      "placeholder": "Select date"
+    }
+  }
+}
